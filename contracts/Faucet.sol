@@ -31,7 +31,7 @@ contract Faucet is Ownable {
     }
 
     function setDelay(uint256 newDelay_) public onlyOwner {
-        _delay = newDelay_;
+        _delay = newDelay_ * 1 hours;
     }
 
     function setTransfertAmount(uint256 newAmount_) public onlyOwner {
@@ -48,5 +48,9 @@ contract Faucet is Ownable {
 
     function transfertAmount() public view returns (uint256) {
         return _transferAmount;
+    }
+
+    function timeRest() public view returns (uint256) {
+        return _claimers[msg.sender] > block.timestamp ? _claimers[msg.sender] - block.timestamp : 0;
     }
 }
