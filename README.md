@@ -40,7 +40,7 @@ An ERC20 token faucet on the Ropsten, Kovan, Rinkeby and Görli testnets.
 | Görli  | [xxx](https://goerli.etherscan.io/address/xxx)  |
 <br />
 
-# Testnet Ether Faucets
+## Testnet Ether Faucets
 
 Testnet   | Explorers                     | Testnet ETH Faucets
 :-------- |:----------------------------- |:-------------------------
