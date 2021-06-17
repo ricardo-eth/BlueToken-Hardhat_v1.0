@@ -7,16 +7,16 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Faucet is Ownable {
     BlueToken private _token;
-    uint256 private _transferAmount;
-    uint256 private _delay;
     mapping(address => uint256) private _claimers;
+    uint64 private _transferAmount;
+    uint48 private _delay;
 
     // TODO event
 
     constructor(
         address blueTokenAddress,
-        uint256 transferAmount_,
-        uint256 delayHour_
+        uint64 transferAmount_,
+        uint48 delayHour_
     ) {
         _token = BlueToken(blueTokenAddress);
         _transferAmount = transferAmount_;
@@ -30,11 +30,11 @@ contract Faucet is Ownable {
         // event
     }
 
-    function setDelay(uint256 newDelay_) public onlyOwner {
+    function setDelay(uint48 newDelay_) public onlyOwner {
         _delay = newDelay_ * 1 hours;
     }
 
-    function setTransfertAmount(uint256 newAmount_) public onlyOwner {
+    function setTransfertAmount(uint64 newAmount_) public onlyOwner {
         _transferAmount = newAmount_;
     }
 
@@ -42,11 +42,11 @@ contract Faucet is Ownable {
         return _claimers[claimer];
     }
 
-    function delay() public view returns (uint256) {
+    function delay() public view returns (uint128) {
         return _delay;
     }
 
-    function transfertAmount() public view returns (uint256) {
+    function transfertAmount() public view returns (uint128) {
         return _transferAmount;
     }
 
