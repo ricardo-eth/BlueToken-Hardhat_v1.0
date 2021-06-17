@@ -11,7 +11,7 @@ contract Faucet is Ownable {
     uint128 private _transferAmount;
     uint48 private _delay;
 
-    event Claimed(address claimer, uint256 amount);
+    event Claimed(address indexed claimer, uint256 amount);
 
     constructor(
         address blueTokenAddress,

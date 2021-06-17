@@ -6,7 +6,7 @@ async function main() {
   const BlueToken = await hre.ethers.getContractFactory('BlueToken');
   const bluetoken = await BlueToken.attach('0xa6db68cfe4c4735d1a2158bc4e2d6c663e038cd7');
 
-  await bluetoken.approve('0x9049778C0907566fF7EdB77F60a662a04D82AD3D', ethers.utils.parseEther('1000000'));
+  await bluetoken.approve('0xf3857b1946f189352aC5D9bD20DAB0Dd6021D655', ethers.utils.parseEther('1000000'));
 }
 
 main()
