@@ -8,33 +8,33 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract Faucet is Ownable {
     BlueToken private _token;
     mapping(address => uint256) private _claimers;
-    uint64 private _transferAmount;
+    uint128 private _transferAmount;
     uint48 private _delay;
 
-    // TODO event
+    event Claimed(address claimer, uint256 amount);
 
     constructor(
         address blueTokenAddress,
-        uint64 transferAmount_,
+        uint128 transferAmount_,
         uint48 delayHour_
     ) {
         _token = BlueToken(blueTokenAddress);
         _transferAmount = transferAmount_;
-        _delay = delayHour_ * 1 hours;
+        _delay = delayHour_ * 1 minutes;
     }
 
     function claimToken() public {
         require(block.timestamp >= _claimers[msg.sender], "Faucet: you need to wait");
         _claimers[msg.sender] = block.timestamp + _delay;
         _token.transferFrom(owner(), msg.sender, _transferAmount);
-        // event
+        emit Claimed(msg.sender, _transferAmount);
     }
 
     function setDelay(uint48 newDelay_) public onlyOwner {
         _delay = newDelay_ * 1 hours;
     }
 
-    function setTransfertAmount(uint64 newAmount_) public onlyOwner {
+    function setTransferAmount(uint128 newAmount_) public onlyOwner {
         _transferAmount = newAmount_;
     }
 
@@ -42,11 +42,11 @@ contract Faucet is Ownable {
         return _claimers[claimer];
     }
 
-    function delay() public view returns (uint128) {
+    function delay() public view returns (uint48) {
         return _delay;
     }
 
-    function transfertAmount() public view returns (uint128) {
+    function transferAmount() public view returns (uint128) {
         return _transferAmount;
     }
 
