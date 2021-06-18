@@ -1,11 +1,10 @@
-# ERC20-Faucet BlueToken (BTKn)
+# BlueToken-Hardhat_v1.0 (BTKn)
 
 ## About
 
  - The following specifications use syntax from Solidity `0.8.0` (or above)
  - An ERC20 Token Faucet on the Rinkeby testnet.
- - Address Contract ERC20 :  
- - Address Contract Faucet : 
+ - Dapp address GitHub : https://github.com/ricardo-eth/BlueToken-Dapp_v1.0/tree/main
 
 ## Features :
 
