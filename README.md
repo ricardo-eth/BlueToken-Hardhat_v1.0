@@ -5,43 +5,6 @@
  - The following specifications use syntax from Solidity `0.8.0` (or above)
  - An ERC20 Token Faucet on the Rinkeby, Ropsten, Kovan and Görli testnets.
 
-<br />
-
-## How to Add Your Custom BlueToken (BTKn) to MetaMask
-
-1. Open MetaMask and click on the "burger" menu icon:
-2. Click on the "ADD TOKEN" button:
-3. Select "Custom Token" tab:
-4. Paste the copied contract address from the first step to the "Token Address" (Verification : Address, Token Symbol and Decimal)
-5. Click the "NEXT" button:
-6. Click the "ADD TOKENS" button:
-7. You are done.
-
-## Deployed Faucet Token
-- ### Address Contract : 
-* Address : See below table
-* Token : BKTn
-* Decimal : 18
-
-| Network  | Address |
-| ------------- | ------------- |
-| Rinkeby  | [0xA6dB68cfE4C4735d1a2158Bc4e2D6C663e038cD7](https://rinkeby.etherscan.io/token/0xA6dB68cfE4C4735d1a2158Bc4e2D6C663e038cD7)  |
-| Ropsten  | [xxx](https://ropsten.etherscan.io/token/xxx)  |
-| Kovan  | [xxx](https://kovan.etherscan.io/token/xxx)  |
-| Görli  | [xxx](https://goerli.etherscan.io/address/xxx)  |
-<br />
-
-## Testnet Ether Faucets
-
-Testnet   | Explorers                     | Testnet ETH Faucets
-:-------- |:----------------------------- |:-------------------------
-Rinkeby   | https://rinkeby.etherscan.io/ | xxx |
-Ropsten   | https://ropsten.etherscan.io/ | xxx |
-Kovan     | https://kovan.etherscan.io/   | xxx |
-Görli     | https://goerli.etherscan.io/  | xxx |
-
-<br />
-
 ## Contract ERC20 - BlueToken - BKTn
 
 **NOTE:** 
@@ -105,7 +68,34 @@ Requirements:
         return true;
     }
 ```
+#### ***IncreaseAllowance :***
 
+Atomically increases the allowance granted to `spender` by the caller</br>
+
+Requirements:
+- `spender` cannot be the zero address.
+
+``` js
+    function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
+        _approve(_msgSender(), spender, _allowances[_msgSender()][spender] + addedValue);
+        return true;
+    }
+```
+
+#### ***DecreaseAllowance :***
+
+Atomically Decreases the allowance granted to `spender` by the caller</br>
+
+Requirements:
+- `spender` cannot be the zero address.
+- `spender` must have allowance for the caller of at least `subtractedValue`.
+
+``` js
+    function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
+        _approve(_msgSender(), spender, _allowances[_msgSender()][spender] + addedValue);
+        return true;
+    }
+```
 ### ERC20 - Guetter
 #### ***Name :***
 
@@ -171,10 +161,45 @@ Returns the amount which `_spender` is still allowed to withdraw from `_owner`.
 **NOTE:** 
 xxxx
 ### Faucet - Function
-#### Claim
 
+
+
+
+
+### Faucet - Guetter
+#### ***DelayOf :***
+
+Return Delay of `_claimers` address
 
 ``` js
-xxx
+    function delayOf(address claimer) public view returns (uint256) {
+        return _claimers[claimer];
+    }
 ```
+#### ***Delay :***
 
+Return `_delay` of the claim.
+
+``` js
+  function delay() public view returns (uint48) {
+        return _delay;
+    }
+```
+#### ***TransferAmount :***
+
+Return the current value of the amount that users can BlueToken claim.
+
+``` js
+    function transferAmount() public view returns (uint128) {
+        return _transferAmount;
+    }
+```
+#### ***TimeRest :***
+
+Return Time for next BlueToken claim.
+
+``` js
+    function timeRest() public view returns (uint256) {
+        return _claimers[msg.sender] > block.timestamp ? _claimers[msg.sender] - block.timestamp : 0;
+    }
+```
