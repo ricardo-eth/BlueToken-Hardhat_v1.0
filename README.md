@@ -63,11 +63,11 @@ https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/tok
 
 #### Transfer
 
-Transfers value amount of tokens to `address`.
+Transfers value amount of tokens to `address`.</br>
 
 Requirements:
-    * - `recipient` cannot be the zero address.
-    * - the caller must have a balance of at least `amount`.
+  - `recipient` cannot be the zero address.
+  - the caller must have a balance of at least `amount`.
 
 ``` js
     function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
@@ -76,14 +76,14 @@ Requirements:
     }
 ```
 
-#### transferFrom
+#### TransferFrom
 
-Transfers value amount of tokens from address `_from` to address `_to`.
+Transfers value amount of tokens from address `_from` to address `_to`.</br>
 
 Requirements:
-     * - `sender` and `recipient` cannot be the zero address.
-     * - `sender` must have a balance of at least `amount`.
-     * - the caller must have allowance for ``sender``'s tokens of at least `amount`.
+  - `sender` and `recipient` cannot be the zero address.
+  - `sender` must have a balance of at least `amount`.
+  - the caller must have allowance for ``sender``'s tokens of at least `amount`.
 
 ``` js
   function transferFrom(
@@ -105,10 +105,10 @@ Requirements:
 
 #### approve
 
-Allows `spender` to withdraw from your account multiple times, up to the value amount.
+Allows `spender` to withdraw from your account multiple times, up to the value amount.</br>
 
 Requirements:
-     * - `spender` cannot be the zero address.
+- `spender` cannot be the zero address.
 
 ``` js
    function approve(address spender, uint256 amount) public virtual override returns (bool) {
