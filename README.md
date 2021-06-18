@@ -158,7 +158,6 @@ Returns the amount which `_spender` is still allowed to withdraw from `_owner`.
 ```
 ## Contract Faucet - BlueToken - BKTn
 
-**NOTE:** 
 This contract has been deployed by the ERC20 BlueToken contract address
 ### Faucet - Function
 #### ***ClaimToken :***
