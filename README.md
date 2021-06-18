@@ -61,7 +61,7 @@ https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/tok
 
 ### ERC20 - Function
 
-#### ***Transfer***
+#### ***Transfer :***
 
 Transfers value amount of tokens to `address`.</br>
 
@@ -76,7 +76,7 @@ Requirements:
     }
 ```
 
-#### ***TransferFrom***
+#### ***TransferFrom :***
 
 Transfers value amount of tokens from address `_from` to address `_to`.</br>
 
@@ -103,7 +103,7 @@ Requirements:
       }
 ```
 
-#### ***Approve***
+#### ***Approve :***
 
 Allows `spender` to withdraw from your account multiple times, up to the value amount.</br>
 
@@ -118,7 +118,7 @@ Requirements:
 ```
 
 ### ERC20 - Guetter
-#### ***Name***
+#### ***Name :***
 
 Returns the name of the token. `"BlueToken"`.
 
@@ -128,7 +128,7 @@ Returns the name of the token. `"BlueToken"`.
     }
 ```
 
-#### ***Symbol***
+#### ***Symbol :***
 
 Returns the symbol of the token. `"BTKn"`.
 
@@ -138,7 +138,7 @@ Returns the symbol of the token. `"BTKn"`.
     }
 ```
 
-#### ***Decimals***
+#### ***Decimals :***
 
 Returns the number of decimals the token uses. `18`, means to divide the token amount by `1000000000` to get its user representation.
 
@@ -148,7 +148,7 @@ Returns the number of decimals the token uses. `18`, means to divide the token a
     }
 ```
 
-#### ***TotalSupply***
+#### ***TotalSupply :***
 
 Returns the total token supply.
 
@@ -158,7 +158,7 @@ Returns the total token supply.
     }
 ```
 
-#### ***BalanceOf***
+#### ***BalanceOf :***
 
 Returns the account balance of another account.
 
@@ -168,7 +168,7 @@ Returns the account balance of another account.
     }
 ```
 
-#### ***Allowance***
+#### ***Allowance :***
 
 Returns the amount which `_spender` is still allowed to withdraw from `_owner`.
 
