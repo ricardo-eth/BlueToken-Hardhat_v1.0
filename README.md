@@ -3,8 +3,60 @@
 ## About
 
  - The following specifications use syntax from Solidity `0.8.0` (or above)
- - An ERC20 Token Faucet on the Rinkeby, Ropsten, Kovan and Görli testnets.
+ - An ERC20 Token Faucet on the Rinkeby testnet.
+ - Address Contract ERC20 :  
+ - Address Contract Faucet : 
 
+## Features :
+
+- Project set up using :
+
+```js
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-solhint": "^2.0.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.4",
+    "chalk": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.28.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-mocha-no-only": "^1.1.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "ethereum-waffle": "^3.3.0",
+    "ethers": "^5.3.1",
+    "hardhat": "^2.3.3",
+    "hardhat-docgen": "^1.1.1",
+    "prettier": "^2.3.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.13",
+    "solhint": "^3.3.6"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.1.0"
+  }
+```
+### Install :
+
+Clone Repo Git : https://github.com/ricardo-eth/BlueToken-Hardhat_v1.0/tree/main
+
+```zsh
+% git clone git@github.com:ricardo-eth/BlueToken-Hardhat_v1.0.git
+% cd BlueToken-Hardhat_v1.0
+```
+### Install dependencies :
+
+```zsh
+% yarn install
+```
+### Test Smart contract :
+
+```zsh
+% npx hardhat compile
+% npx hardhat test
+```
 ## Contract ERC20 - BlueToken - BKTn
 
 **NOTE:** 
