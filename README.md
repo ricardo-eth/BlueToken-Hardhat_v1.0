@@ -1,7 +1,7 @@
 # ERC20-Faucet BlueToken (BTKn)
 
 ## About
-**NOTES**:
+
  - The following specifications use syntax from Solidity `0.8.0` (or above)
  - An ERC20 Token Faucet on the Rinkeby, Ropsten, Kovan and Görli testnets.
 
