@@ -25,7 +25,7 @@ contract Faucet is Ownable {
     ) {
         _token = BlueToken(blueTokenAddress);
         _transferAmount = transferAmount_;
-        _delay = delayHour_ * 1 minutes;
+        _delay = delayHour_ * 1 hours;
     }
 
     /// @notice The claim function allows the user to retrieve their BKTn.
@@ -40,7 +40,7 @@ contract Faucet is Ownable {
         _token.transferFrom(owner(), msg.sender, _transferAmount);
         emit Claimed(msg.sender, _transferAmount);
     }
-    
+
     /// @notice The SetDelay function allows you to define the duration of the claim expressed in hours.
     /// @dev The function is public and only owner of contract can modify this value.
 
@@ -54,7 +54,7 @@ contract Faucet is Ownable {
     function setTransferAmount(uint128 newAmount_) public onlyOwner {
         _transferAmount = newAmount_;
     }
-    
+
     /// @notice The delayOf function allows you to see the delay of each address before the next claim.
     /// @dev This function is public view and return value (Uint256).
     /// @return Delay of claimers address.
@@ -62,6 +62,7 @@ contract Faucet is Ownable {
     function delayOf(address claimer) public view returns (uint256) {
         return _claimers[claimer];
     }
+
     /// @notice The delay function allows to see the current value of the delay of the claim modified by the owner.
     /// @dev This function is public view and return value (Uint48).
     /// @return Delay of the claim.

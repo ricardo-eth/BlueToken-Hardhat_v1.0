@@ -4,7 +4,7 @@
    "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
   },
   "rinkeby": {
-   "address": "0xA6dB68cfE4C4735d1a2158Bc4e2D6C663e038cD7"
+   "address": "0x85211679fDF491E18676B623db07cABCaF815316"
   }
  },
  "Faucet": {
@@ -12,7 +12,7 @@
    "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
   },
   "rinkeby": {
-   "address": "0xf3857b1946f189352aC5D9bD20DAB0Dd6021D655"
+   "address": "0xAD15db57F7342FD4CF80719013dBa63B378b4066"
   }
  }
 }

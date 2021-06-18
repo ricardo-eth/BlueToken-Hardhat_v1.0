@@ -24,7 +24,11 @@ async function main() {
 
   // We get the contract to deploy
   const Faucet = await hre.ethers.getContractFactory('Faucet');
-  const faucet = await Faucet.deploy(json[TOKEN_CONTRACT][hre.network.name].address, ethers.utils.parseEther('100'), 3);
+  const faucet = await Faucet.deploy(
+    json[TOKEN_CONTRACT][hre.network.name].address,
+    ethers.utils.parseEther('100'),
+    72
+  );
 
   // Attendre que le contrat soit réellement déployé, cad que la transaction de déploiement
   // soit incluse dans un bloc

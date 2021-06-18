@@ -22,7 +22,7 @@ describe('Faucet', function () {
   });
   describe('Deployment', function () {
     it(`TransferAmount ✓`, async function () {
-      expect(await faucet.transfertAmount()).to.be.equal(TRANSFER_AMOUNT);
+      expect(await faucet.transferAmount()).to.be.equal(TRANSFER_AMOUNT);
     });
     it('DelayHour ✓', async function () {
       expect(await faucet.delay()).to.be.equal(DELAY_HOUR * 3600); // in seconds
@@ -64,8 +64,8 @@ describe('Faucet', function () {
       expect(await faucet.delay()).to.be.equal(172800);
     });
     it('Should set a new transfer amount', async function () {
-      await faucet.connect(owner).setTransfertAmount(TRANSFER_AMOUNT.mul(10));
-      expect(await faucet.transfertAmount()).to.be.equal(TRANSFER_AMOUNT.mul(10));
+      await faucet.connect(owner).setTransferAmount(TRANSFER_AMOUNT.mul(10));
+      expect(await faucet.transferAmount()).to.be.equal(TRANSFER_AMOUNT.mul(10));
     });
     it('Should revert if not Owner', async function () {
       await expect(faucet.connect(alice).setDelay(1)).to.be.revertedWith('Ownable: caller is not the owner');
@@ -75,8 +75,8 @@ describe('Faucet', function () {
     it('Delay', async function () {
       expect(await faucet.delay()).to.be.equal(259200);
     });
-    it('TransfertAmount', async function () {
-      expect(await faucet.transfertAmount()).to.be.equal(TRANSFER_AMOUNT);
+    it('TransferAmount', async function () {
+      expect(await faucet.transferAmount()).to.be.equal(TRANSFER_AMOUNT);
     });
   });
   describe('TimeRest', function () {

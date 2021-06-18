@@ -13,7 +13,7 @@ async function main() {
   const BlueToken = await hre.ethers.getContractFactory('BlueToken');
   const bluetoken = await BlueToken.attach(json[TOKEN_CONTRACT][hre.network.name].address);
 
-  await bluetoken.approve(json[FAUCET_CONTRACT][hre.network.name].address, ethers.utils.parseEther('1000000'));
+  await bluetoken.approve(json[FAUCET_CONTRACT][hre.network.name].address, ethers.utils.parseEther('10000000'));
   console.log(`${FAUCET_CONTRACT}: ${json[FAUCET_CONTRACT][hre.network.name].address} has been approved`);
 }
 
