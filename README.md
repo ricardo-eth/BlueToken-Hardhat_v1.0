@@ -3,7 +3,7 @@
 ## About
 **NOTES**:
  - The following specifications use syntax from Solidity `0.8.0` (or above)
- - An ERC20 token faucet on the Ropsten, Kovan, Rinkeby and Görli testnets.
+ - An ERC20 Token Faucet on the Rinkeby, Ropsten, Kovan and Görli testnets.
 
 <br />
 
@@ -17,23 +17,12 @@
 6. Click the "ADD TOKENS" button:
 7. You are done.
 
-- ### Rinkeby : 
-* Address : 0xA6dB68cfE4C4735d1a2158Bc4e2D6C663e038cD7
+## Deployed Faucet Token
+- ### Address Contract : 
+* Address : See below table
 * Token : BKTn
 * Decimal : 18
-- ### Ropsten 
-* Address : 
-* Token : 
-* Decimal : 
-- ### Kovan 
-* Address : 
-* Token : 
-* Decimal : 
-- ### Görli 
-* Address : 
-* Token : 
-* Decimal : 
-## Deployed Faucet Token
+
 | Network  | Address |
 | ------------- | ------------- |
 | Rinkeby  | [0xA6dB68cfE4C4735d1a2158Bc4e2D6C663e038cD7](https://rinkeby.etherscan.io/token/0xA6dB68cfE4C4735d1a2158Bc4e2D6C663e038cD7)  |
