@@ -159,13 +159,47 @@ Returns the amount which `_spender` is still allowed to withdraw from `_owner`.
 ## Contract Faucet - BlueToken - BKTn
 
 **NOTE:** 
-xxxx
+This contract has been deployed by the ERC20 BlueToken contract address
 ### Faucet - Function
+#### ***ClaimToken :***
 
+The claim function allows the user to retrieve their BKTn.
 
+Requirements:
+  - `_claimers` must not have a cooldown.
 
+```js
+    function claimToken() public {
+        require(block.timestamp >= _claimers[msg.sender], "Faucet: you need to wait");
+        _claimers[msg.sender] = block.timestamp + _delay;
+        _token.transferFrom(owner(), msg.sender, _transferAmount);
+        emit Claimed(msg.sender, _transferAmount);
+    }
+```
+#### ***SetDelay :***
 
+The SetDelay function allows you to define the duration of the claim expressed in hours.
 
+Requirements:
+  - `onlyOwner` The owner is the only one able to perform this function.
+
+```js
+    function setDelay(uint48 newDelay_) public onlyOwner {
+        _delay = newDelay_ * 1 hours;
+    }
+```
+#### ***SetTransferAmount :***
+
+This function allows to define the amount to claim BlueToken.
+
+Requirements:
+  - `onlyOwner` The owner is the only one able to perform this function.
+
+```js
+    function setTransferAmount(uint128 newAmount_) public onlyOwner {
+        _transferAmount = newAmount_;
+    }
+```
 ### Faucet - Guetter
 #### ***DelayOf :***
 
