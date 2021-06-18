@@ -7,7 +7,8 @@
  - Adresse ERC20 - BlueToken : 0x85211679fDF491E18676B623db07cABCaF815316
  - Adresse Faucet - BlueToken : 0xAD15db57F7342FD4CF80719013dBa63B378b4066
  - Dapp GitHub address : https://github.com/ricardo-eth/BlueToken-Dapp_v1.0/tree/main
- - The BlueToken Faucet has been deployed on Netlify : https://github.com/ricardo-eth/BlueToken-Hardhat_v1.0
+ - The BlueToken Faucet has been deployed on Netlify : https://bluetoken-faucet.netlify.app
+
 
 ## Features :
 
