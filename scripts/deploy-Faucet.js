@@ -2,6 +2,9 @@
 /* eslint-disable no-undef */
 const hre = require('hardhat');
 const { deployed } = require('./deployed');
+const { readJson } = require('./readJson');
+
+const TOKEN_CONTRACT = 'BlueToken';
 
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
@@ -15,9 +18,13 @@ async function main() {
   const [deployer] = await ethers.getSigners();
   console.log('Deploying contracts with the account:', deployer.address);
 
+  // recupere 'deployed.json' sous forme d'objet,afin d'utilise l'addresse
+  // de deploiement du 'BlueToken'
+  const json = await readJson();
+
   // We get the contract to deploy
   const Faucet = await hre.ethers.getContractFactory('Faucet');
-  const faucet = await Faucet.deploy('0xA6dB68cfE4C4735d1a2158Bc4e2D6C663e038cD7', ethers.utils.parseEther('100'), 3);
+  const faucet = await Faucet.deploy(json[TOKEN_CONTRACT][hre.network.name].address, ethers.utils.parseEther('100'), 3);
 
   // Attendre que le contrat soit réellement déployé, cad que la transaction de déploiement
   // soit incluse dans un bloc
