@@ -1,7 +1,9 @@
-# ERC20-Faucet
+# ERC20-Faucet BlueToken (BTKn)
 
 ## About
-An ERC20 token faucet on the Ropsten, Kovan, Rinkeby and Görli testnets.
+**NOTES**:
+ - The following specifications use syntax from Solidity `0.8.0` (or above)
+ - An ERC20 token faucet on the Ropsten, Kovan, Rinkeby and Görli testnets.
 
 <br />
 
@@ -50,3 +52,140 @@ Kovan     | https://kovan.etherscan.io/   | xxx |
 Görli     | https://goerli.etherscan.io/  | xxx |
 
 <br />
+
+## Contract ERC20 - BlueToken - BKTn
+
+**NOTE:** 
+Import ERC20 contract by OpenZeppelin : 
+https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol
+
+### ERC20 - Function
+
+#### Transfer
+
+Transfers value amount of tokens to `address`.
+
+Requirements:
+    * - `recipient` cannot be the zero address.
+    * - the caller must have a balance of at least `amount`.
+
+``` js
+    function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
+        _transfer(_msgSender(), recipient, amount);
+        return true;
+    }
+```
+
+#### transferFrom
+
+Transfers value amount of tokens from address `_from` to address `_to`.
+
+Requirements:
+     * - `sender` and `recipient` cannot be the zero address.
+     * - `sender` must have a balance of at least `amount`.
+     * - the caller must have allowance for ``sender``'s tokens of at least `amount`.
+
+``` js
+  function transferFrom(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) public virtual override returns (bool) {
+        _transfer(sender, recipient, amount);
+
+        uint256 currentAllowance = _allowances[sender][_msgSender()];
+        require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
+        unchecked {
+            _approve(sender, _msgSender(), currentAllowance - amount);
+        }
+
+        return true;
+      }
+```
+
+#### approve
+
+Allows `spender` to withdraw from your account multiple times, up to the value amount.
+
+Requirements:
+     * - `spender` cannot be the zero address.
+
+``` js
+   function approve(address spender, uint256 amount) public virtual override returns (bool) {
+        _approve(_msgSender(), spender, amount);
+        return true;
+    }
+```
+
+### ERC20 - Guetter
+#### name
+
+Returns the name of the token. `"BlueToken"`.
+
+``` js
+    function name() public view virtual override returns (string memory) {
+        return _name;
+    }
+```
+
+#### symbol
+
+Returns the symbol of the token. `"BTKn"`.
+
+``` js
+  function symbol() public view virtual override returns (string memory) {
+        return _symbol;
+    }
+```
+
+#### decimals
+
+Returns the number of decimals the token uses. `18`, means to divide the token amount by `1000000000` to get its user representation.
+
+``` js
+    function decimals() public view virtual override returns (uint8) {
+        return 18;
+    }
+```
+
+#### totalSupply
+
+Returns the total token supply.
+
+``` js
+    function totalSupply() public view virtual override returns (uint256) {
+        return _totalSupply;
+    }
+```
+
+#### balanceOf
+
+Returns the account balance of another account.
+
+``` js
+    function balanceOf(address account) public view virtual override returns (uint256) {
+        return _balances[account];
+    }
+```
+
+#### allowance
+
+Returns the amount which `_spender` is still allowed to withdraw from `_owner`.
+
+``` js
+    function allowance(address owner, address spender) public view virtual override returns (uint256) {
+        return _allowances[owner][spender];
+    }
+```
+## Contract Faucet - BlueToken - BKTn
+
+**NOTE:** 
+xxxx
+### Faucet - Function
+#### Claim
+
+
+``` js
+xxx
+```
+
